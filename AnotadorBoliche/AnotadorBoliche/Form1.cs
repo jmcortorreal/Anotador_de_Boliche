@@ -1,4 +1,4 @@
-﻿
+﻿using Anotador_Boliche;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +20,8 @@ namespace AnotadorBoliche
     }
     public partial class Form1 : Form
     {
-        
+        public Manejador manejador;
+        public ManejadorUI manejadorUI;
         public frame[] LanzamientosPrimerJugador = new frame[10];
         public frame[] LanzamientosSegundoJugador = new frame[10];
         [STAThread]
@@ -141,20 +142,58 @@ namespace AnotadorBoliche
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            manejadorUI.back();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            manejadorUI.next();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            manejador = new Manejador(textBox1.Text);
+            manejadorUI = new ManejadorUI(this);
+            if (manejador.PrimerJugador.Turnos.Count() != 0)
+            {
+                button1.Enabled = false;
+                button2.Enabled = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            manejador = new Manejador(textBox1.Text);
+            manejadorUI = new ManejadorUI(this);
+            button1.Enabled = false;
+            button3.Enabled = true;
+            for (int j = 0; j < LanzamientosPrimerJugador.Count(); j++)
+            {
+                LanzamientosPrimerJugador[j].roll1.Text = "";
+                LanzamientosPrimerJugador[j].roll2.Text = "";
+                if (LanzamientosPrimerJugador[j].roll3 != null)
+                    LanzamientosPrimerJugador[j].roll3.Text = "";
+            }
+            for (int j = 0; j < LanzamientosSegundoJugador.Count(); j++)
+            {
+                LanzamientosSegundoJugador[j].roll1.Text = "";
+                LanzamientosSegundoJugador[j].roll2.Text = "";
+                if (LanzamientosSegundoJugador[j].roll3 != null)
+                    LanzamientosSegundoJugador[j].roll3.Text = "";
+            }
+            for (int i = 0; i < LanzamientosPrimerJugador.Count(); i++)
+            {
+                LanzamientosPrimerJugador[i].acomulado.Text = "";
+            }
+            for (int i = 0; i < LanzamientosSegundoJugador.Count(); i++)
+            {
+                LanzamientosSegundoJugador[i].acomulado.Text = "";
+            }
         }
     }
 }
