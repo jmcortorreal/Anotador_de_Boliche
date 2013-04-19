@@ -12,9 +12,9 @@ namespace Anotador_Boliche
         public Marcador SegundoJugador = new Marcador();
         public Manejador(string FileLocation)
         {
-            //string[] lanzamientos = LeerArchivo.Leer_Archivo(FileLocation);
-            //if (lanzamientos != null)
-                //Split_Array_Lanzamientos(lanzamientos);
+            string[] lanzamientos = LeerArchivo.Leer_Archivo(FileLocation);
+            if (lanzamientos != null)
+                Split_Array_Lanzamientos(lanzamientos);
         }
         private void Split_Array_Lanzamientos(string[] arr)
         {

@@ -74,6 +74,7 @@
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeerArchivo.cs" />
     <Compile Include="Manejador.cs" />
     <Compile Include="Marcador.cs" />
     <Compile Include="Program.cs" />
