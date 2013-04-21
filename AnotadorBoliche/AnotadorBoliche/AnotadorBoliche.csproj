@@ -79,7 +79,7 @@
     <Compile Include="LeerArchivoUnitTesting.cs" />
     <Compile Include="Manejador.cs" />
     <Compile Include="ManejadorUI.cs" />
-    <Compile Include="ManejadorUnitTesting.cs" />
+    <Compile Include="IntegrationTesting.cs" />
     <Compile Include="Marcador.cs" />
     <Compile Include="MarcadorUnitTesting.cs" />
     <Compile Include="Program.cs" />
